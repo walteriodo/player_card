@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Walter Dominguez - AL7 PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- POSICION OVERLAY -->
+    <img src="assets/positions/dfc.png" class="position-overlay" alt="DFC">
+
+    <!-- HEADER -->
+    <div class="player-header">
+        <div class="rating">66</div>
+        <img src="assets/photos/walter_dominguez.jpg" class="player-photo" alt="Walter Dominguez">
+    </div>
+
+    <!-- NACIONALIDAD -->
+    <div class="nationality">
+        <div class="country-code">ARG</div>
+        <img src="assets/flags/arg.png" class="flag-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="player-info">
+        <div class="player-name">Walter Dominguez</div>
+        <div class="player-meta">
+            42 años | 176 cm | 84 kg
+        </div>
+        <div class="player-meta">
+            DFC | Pie izq
+        </div>
+    </div>
+
+    <!-- LOGOS EQUIPOS -->
+    <div class="teams-container">
+        
+        <img src="assets/logos/primera.png"
+             class="team-logo">
+        
+        <img src="assets/logos/30.png"
+             class="team-logo">
+        
+        <img src="assets/logos/35.png"
+             class="team-logo">
+        
+    </div>
+
+    <!-- ICONOS EXTRA -->
+    <div class="player-icons">
+        <div class="icon-box">
+            <img src="assets/foot/izq.png" class="small-icon">
+            <div class="icon-label">izq</div>
+        </div>
+
+        <div class="icon-box">
+            <img src="assets/positions/dfc.png" class="small-icon">
+            <div class="icon-label">Zona</div>
+        </div>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ["PAC","SHO","PAS","DRI","DEF","PHY",],
+        datasets: [{
+            data: [60,50,60,55,85,88,],
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            r: { beginAtZero: true, max: 100 }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

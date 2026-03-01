@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Felipe Fuenzalida - AL7 PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- POSICION OVERLAY -->
+    <img src="assets/positions/ld.png" class="position-overlay" alt="LD">
+
+    <!-- HEADER -->
+    <div class="player-header">
+        <div class="rating">73</div>
+        <img src="assets/photos/felipe_fuenzalida.jpg" class="player-photo" alt="Felipe Fuenzalida">
+    </div>
+
+    <!-- NACIONALIDAD -->
+    <div class="nationality">
+        <div class="country-code">CL</div>
+        <img src="assets/flags/cl.png" class="flag-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="player-info">
+        <div class="player-name">Felipe Fuenzalida</div>
+        <div class="player-meta">
+            36 años | 179 cm | 80 kg
+        </div>
+        <div class="player-meta">
+            LD | Pie der
+        </div>
+    </div>
+
+    <!-- LOGOS EQUIPOS -->
+    <div class="teams-container">
+        
+        <img src="assets/logos/primera.png"
+             class="team-logo">
+        
+        <img src="assets/logos/segunda.png"
+             class="team-logo">
+        
+        <img src="assets/logos/30.png"
+             class="team-logo">
+        
+        <img src="assets/logos/35.png"
+             class="team-logo">
+        
+    </div>
+
+    <!-- ICONOS EXTRA -->
+    <div class="player-icons">
+        <div class="icon-box">
+            <img src="assets/foot/der.png" class="small-icon">
+            <div class="icon-label">der</div>
+        </div>
+
+        <div class="icon-box">
+            <img src="assets/positions/ld.png" class="small-icon">
+            <div class="icon-label">Zona</div>
+        </div>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ["PAC","SHO","PAS","DRI","DEF","PHY",],
+        datasets: [{
+            data: [75,60,70,75,78,82,],
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            r: { beginAtZero: true, max: 100 }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

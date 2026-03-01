@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nicolás Muñoz - AL7 PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- POSICION OVERLAY -->
+    <img src="assets/positions/md.png" class="position-overlay" alt="MD">
+
+    <!-- HEADER -->
+    <div class="player-header">
+        <div class="rating">70</div>
+        <img src="assets/photos/nicolas_munoz.jpg" class="player-photo" alt="Nicolás Muñoz">
+    </div>
+
+    <!-- NACIONALIDAD -->
+    <div class="nationality">
+        <div class="country-code">CL</div>
+        <img src="assets/flags/cl.png" class="flag-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="player-info">
+        <div class="player-name">Nicolás Muñoz</div>
+        <div class="player-meta">
+            26 años | 165 cm | 86 kg
+        </div>
+        <div class="player-meta">
+            MD | Pie der
+        </div>
+    </div>
+
+    <!-- LOGOS EQUIPOS -->
+    <div class="teams-container">
+        
+        <img src="assets/logos/primera.png"
+             class="team-logo">
+        
+        <img src="assets/logos/segunda.png"
+             class="team-logo">
+        
+    </div>
+
+    <!-- ICONOS EXTRA -->
+    <div class="player-icons">
+        <div class="icon-box">
+            <img src="assets/foot/der.png" class="small-icon">
+            <div class="icon-label">der</div>
+        </div>
+
+        <div class="icon-box">
+            <img src="assets/positions/md.png" class="small-icon">
+            <div class="icon-label">Zona</div>
+        </div>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ["PAC","SHO","PAS","DRI","DEF","PHY",],
+        datasets: [{
+            data: [70,70,70,70,70,70,],
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            r: { beginAtZero: true, max: 100 }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

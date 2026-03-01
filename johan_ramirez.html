@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Johan Ramirez - AL7 PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- POSICION OVERLAY -->
+    <img src="assets/positions/ed.png" class="position-overlay" alt="ED">
+
+    <!-- HEADER -->
+    <div class="player-header">
+        <div class="rating">76</div>
+        <img src="assets/photos/johan_ramirez.jpg" class="player-photo" alt="Johan Ramirez">
+    </div>
+
+    <!-- NACIONALIDAD -->
+    <div class="nationality">
+        <div class="country-code">COL</div>
+        <img src="assets/flags/col.png" class="flag-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="player-info">
+        <div class="player-name">Johan Ramirez</div>
+        <div class="player-meta">
+            25 años | 161 cm | 61 kg
+        </div>
+        <div class="player-meta">
+            ED | Pie izq
+        </div>
+    </div>
+
+    <!-- LOGOS EQUIPOS -->
+    <div class="teams-container">
+        
+        <img src="assets/logos/primera.png"
+             class="team-logo">
+        
+        <img src="assets/logos/segunda.png"
+             class="team-logo">
+        
+    </div>
+
+    <!-- ICONOS EXTRA -->
+    <div class="player-icons">
+        <div class="icon-box">
+            <img src="assets/foot/izq.png" class="small-icon">
+            <div class="icon-label">izq</div>
+        </div>
+
+        <div class="icon-box">
+            <img src="assets/positions/ed.png" class="small-icon">
+            <div class="icon-label">Zona</div>
+        </div>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ["PAC","SHO","PAS","DRI","DEF","PHY",],
+        datasets: [{
+            data: [90,80,75,88,50,70,],
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            r: { beginAtZero: true, max: 100 }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

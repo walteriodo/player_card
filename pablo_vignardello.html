@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pablo vignardello - AL7 PRO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+    <!-- POSICION OVERLAY -->
+    <img src="assets/positions/mcd.png" class="position-overlay" alt="MCD">
+
+    <!-- HEADER -->
+    <div class="player-header">
+        <div class="rating">74</div>
+        <img src="assets/photos/pablo_vignardello.jpg" class="player-photo" alt="Pablo vignardello">
+    </div>
+
+    <!-- NACIONALIDAD -->
+    <div class="nationality">
+        <div class="country-code">CL</div>
+        <img src="assets/flags/cl.png" class="flag-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="player-info">
+        <div class="player-name">Pablo vignardello</div>
+        <div class="player-meta">
+            32 años | 180 cm | 67 kg
+        </div>
+        <div class="player-meta">
+            MCD | Pie izq
+        </div>
+    </div>
+
+    <!-- LOGOS EQUIPOS -->
+    <div class="teams-container">
+        
+        <img src="assets/logos/30.png"
+             class="team-logo">
+        
+    </div>
+
+    <!-- ICONOS EXTRA -->
+    <div class="player-icons">
+        <div class="icon-box">
+            <img src="assets/foot/izq.png" class="small-icon">
+            <div class="icon-label">izq</div>
+        </div>
+
+        <div class="icon-box">
+            <img src="assets/positions/mcd.png" class="small-icon">
+            <div class="icon-label">Zona</div>
+        </div>
+    </div>
+
+    <!-- RADAR -->
+    <div class="radar-container">
+        <canvas id="radarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ["PAC","SHO","PAS","DRI","DEF","PHY",],
+        datasets: [{
+            data: [70,60,75,70,85,85,],
+            fill: true
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            r: { beginAtZero: true, max: 100 }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
