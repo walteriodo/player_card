@@ -46,6 +46,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  pointer-events: none; /* 🔥 evita que los invisibles reciban clic */
+}
+
+.fade-slide.active {
+  opacity: 1;
+  pointer-events: auto; /* 🔥 solo el visible es clickeable */
 }
 
 .fade-slide a {
@@ -67,10 +73,6 @@
   filter: brightness(1.05);
 }
 
-.fade-slide.active {
-  opacity: 1;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .premium-carousel {
@@ -84,7 +86,7 @@
 </style>
 
 <script>
-let slides = document.querySelectorAll(".fade-slide");
+const slides = document.querySelectorAll(".fade-slide");
 let current = 0;
 
 function showNextSlide() {
