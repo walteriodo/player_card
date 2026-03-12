@@ -1,235 +1,295 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrés Llanos - AL7 PRO</title>
-    <link rel="stylesheet" href="style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Andrés Llanos - AL7</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body>
 
 <div class="page-wrapper">
 
-    <div class="card" id="playerCard">
+<div class="card" id="playerCard">
 
-        <!-- POSICION OVERLAY -->
-        <img src="assets/positions/dfc.png" class="position-overlay" alt="DFC">
+<!-- POSICION -->
+<img src="assets/positions/dfc.png" class="position-overlay">
 
-        <!-- HEADER -->
-        <div class="player-header">
-            <div class="rating">66</div>
-            <img src="assets/photos/andres_llanos.jpg" class="player-photo" alt="Andrés Llanos">
-        </div>
+<!-- HEADER -->
+<div class="player-header">
 
-        <!-- NACIONALIDAD -->
-        <div class="nationality">
-            <div class="country-code">CL</div>
-            <img src="assets/flags/cl.png" class="flag-img" alt="CL">
-        </div>
+<div class="rating">66</div>
 
-        <!-- INFO -->
-        <div class="player-info">
-            <div class="player-name">Andrés Llanos</div>
-            <div class="player-meta">
-                33 años | 168 cm | 60 kg
-            </div>
-            <div class="player-meta">
-                DFC | Pie der
-            </div>
-        </div>
-
-        <!-- LOGOS EQUIPOS -->
-        <div class="teams-container">
-            
-            <img
-                src="assets/logos/primera.png"
-                class="team-logo"
-                alt="primera"
-            >
-            
-            <img
-                src="assets/logos/segunda.png"
-                class="team-logo"
-                alt="segunda"
-            >
-            
-            <img
-                src="assets/logos/30.png"
-                class="team-logo"
-                alt="30"
-            >
-            
-            <img
-                src="assets/logos/35.png"
-                class="team-logo"
-                alt="35"
-            >
-            
-        </div>
-
-        <!-- ICONOS EXTRA -->
-        <div class="player-icons">
-            <div class="icon-box">
-                <img src="assets/foot/der.png" class="small-icon" alt="der">
-                <div class="icon-label">der</div>
-            </div>
-
-            <div class="icon-box">
-                <img src="assets/positions/dfc.png" class="small-icon" alt="DFC">
-                <div class="icon-label">Zona</div>
-            </div>
-        </div>
-
-        <!-- RADAR -->
-        <div class="radar-container">
-            <canvas id="radarChart"></canvas>
-        </div>
-
-    </div>
-
-    <!-- SHARE ACTIONS -->
-    <div class="share-actions">
-        <button class="action-btn" onclick="downloadCard()">Descargar mi ficha</button>
-        <button class="action-btn secondary" onclick="shareCard()">Compartir mi ficha</button>
-        <p class="share-help">
-            Descarga tu ficha y súbela a tu historia de Instagram etiquetando a AL7.
-        </p>
-    </div>
+<div class="player-photo-wrapper">
+<img src="assets/photos/andres_llanos.jpg" class="player-photo">
+</div>
 
 </div>
 
+<!-- NACIONALIDAD -->
+
+<div class="nationality">
+
+<div class="country-code">CL</div>
+
+<img src="assets/flags/cl.png" class="flag-img">
+
+</div>
+
+<!-- INFO -->
+
+<div class="player-info">
+
+<div class="player-name">Andrés Llanos</div>
+
+<div class="player-meta">
+
+33 años | 168 cm | 60 kg
+
+</div>
+
+<div class="player-meta">
+
+DFC | Pie der
+
+</div>
+
+</div>
+
+<!-- EQUIPOS -->
+
+<div class="teams-container">
+
+
+
+<img
+src="assets/logos/primera.png"
+class="team-logo">
+
+
+
+<img
+src="assets/logos/segunda.png"
+class="team-logo">
+
+
+
+<img
+src="assets/logos/30.png"
+class="team-logo">
+
+
+
+<img
+src="assets/logos/35.png"
+class="team-logo">
+
+
+
+</div>
+
+<!-- ICONOS -->
+
+<div class="player-icons">
+
+<div class="icon-box">
+
+<img src="assets/foot/der.png" class="small-icon">
+
+<div class="icon-label">der</div>
+
+</div>
+
+<div class="icon-box">
+
+<img src="assets/positions/dfc.png" class="small-icon">
+
+<div class="icon-label">Zona</div>
+
+</div>
+
+</div>
+
+<!-- RADAR -->
+
+<div class="radar-container">
+
+<canvas id="radarChart"></canvas>
+
+</div>
+
+</div>
+
+
+<!-- BOTONES -->
+
+<div class="share-actions">
+
+<button class="action-btn" onclick="downloadCard()">Descargar mi ficha</button>
+
+<button class="action-btn secondary" onclick="shareCard()">Compartir mi ficha</button>
+
+<p class="share-help">
+
+Descarga tu ficha y súbela a tu historia de Instagram etiquetando a AL7.
+
+</p>
+
+</div>
+
+</div>
+
+
 <script>
+
 const ctx = document.getElementById('radarChart');
 
 new Chart(ctx, {
-    type: 'radar',
-    data: {
-        labels: ["PAC", "SHO", "PAS", "DRI", "DEF", "PHY"],
-        datasets: [{
-            data: [55, 50, 60, 55, 85, 88],
-            fill: true,
-            backgroundColor: 'rgba(34, 197, 94, 0.20)',
-            borderColor: 'rgba(34, 197, 94, 1)',
-            pointBackgroundColor: 'rgba(34, 197, 94, 1)',
-            pointBorderColor: '#ffffff',
-            pointHoverBackgroundColor: '#ffffff',
-            pointHoverBorderColor: 'rgba(34, 197, 94, 1)'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false }
-        },
-        scales: {
-            r: {
-                beginAtZero: true,
-                min: 0,
-                max: 100,
-                ticks: {
-                    stepSize: 20,
-                    backdropColor: 'transparent',
-                    color: '#bfbfbf'
-                },
-                grid: {
-                    color: 'rgba(255,255,255,0.12)'
-                },
-                angleLines: {
-                    color: 'rgba(255,255,255,0.12)'
-                },
-                pointLabels: {
-                    color: '#ffffff',
-                    font: {
-                        size: 12
-                    }
-                }
-            }
-        }
-    }
+
+type: 'radar',
+
+data: {
+
+labels: ["PAC", "SHO", "PAS", "DRI", "DEF", "PHY"],
+
+datasets: [{
+
+data: [55, 50, 60, 55, 85, 88],
+
+fill: true,
+
+backgroundColor: 'rgba(34,197,94,0.25)',
+
+borderColor: 'rgba(34,197,94,1)',
+
+pointBackgroundColor: '#22c55e'
+
+}]
+
+},
+
+options: {
+
+plugins:{legend:{display:false}},
+
+scales:{
+
+r:{
+
+beginAtZero:true,
+
+max:100
+
+}
+
+}
+
+}
+
 });
 
-async function generateCardBlob() {
-    const card = document.getElementById('playerCard');
+async function generateCardBlob(){
 
-    const canvas = await html2canvas(card, {
-        backgroundColor: null,
-        scale: 2,
-        useCORS: true
-    });
+const card=document.getElementById('playerCard');
 
-    return new Promise((resolve) => {
-        canvas.toBlob((blob) => resolve(blob), 'image/png');
-    });
+const canvas=await html2canvas(card,{scale:2,useCORS:true});
+
+return new Promise(resolve=>{
+
+canvas.toBlob(blob=>resolve(blob),'image/png');
+
+});
+
 }
 
-async function downloadCard() {
-    try {
-        const blob = await generateCardBlob();
-        const url = URL.createObjectURL(blob);
+async function downloadCard(){
 
-        const playerName = (document.querySelector('.player-name')?.innerText || 'ficha_jugador')
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '_');
+const blob=await generateCardBlob();
 
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${playerName}.png`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
+const url=URL.createObjectURL(blob);
 
-        URL.revokeObjectURL(url);
-    } catch (err) {
-        console.error(err);
-        alert('No se pudo descargar la ficha.');
-    }
+const player=document.querySelector('.player-name').innerText.toLowerCase().replace(/\s+/g,'_');
+
+const a=document.createElement('a');
+
+a.href=url;
+
+a.download=player+'.png';
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+URL.revokeObjectURL(url);
+
 }
 
-async function shareCard() {
-    try {
-        const blob = await generateCardBlob();
-        const playerName = (document.querySelector('.player-name')?.innerText || 'ficha_jugador')
-            .toLowerCase()
-            .trim()
-            .replace(/\s+/g, '_');
+async function shareCard(){
 
-        const file = new File([blob], `${playerName}.png`, { type: 'image/png' });
+try{
 
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            await navigator.share({
-                title: 'Mi ficha AL7',
-                text: 'Mira mi ficha de jugador en AL7 ⚽',
-                files: [file]
-            });
-            return;
-        }
+const blob=await generateCardBlob();
 
-        if (navigator.share) {
-            await navigator.share({
-                title: 'Mi ficha AL7',
-                text: 'Mira mi ficha de jugador en AL7 ⚽',
-                url: window.location.href
-            });
-            return;
-        }
+const player=document.querySelector('.player-name').innerText.toLowerCase().replace(/\s+/g,'_');
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(window.location.href);
-            alert('Tu navegador no permite compartir directamente. Se copió el link de la ficha.');
-            return;
-        }
+const file=new File([blob],player+'.png',{type:'image/png'});
 
-        alert('Tu navegador no permite compartir directamente.');
-    } catch (err) {
-        console.error(err);
-    }
+if(navigator.canShare && navigator.canShare({files:[file]})){
+
+await navigator.share({
+
+title:'Mi ficha AL7',
+
+text:'Mira mi ficha de jugador ⚽',
+
+files:[file]
+
+});
+
+return;
+
 }
+
+if(navigator.share){
+
+await navigator.share({
+
+title:'Mi ficha AL7',
+
+text:'Mira mi ficha de jugador ⚽',
+
+url:window.location.href
+
+});
+
+return;
+
+}
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("Link copiado");
+
+}catch(e){
+
+console.log(e);
+
+}
+
+}
+
 </script>
 
 </body>
+
 </html>
