@@ -1,0 +1,22 @@
+.liga-embed {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.iframe-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 900px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+  background: #fff;
+}
+
+.iframe-wrap iframe {
+  width: 100%;
+  height: 900px;
+  border: 0;
+  display: block;
+}
