@@ -1,38 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Ligas AL7</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competiciones AL7</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<h1>Competiciones AL7</h1>
-<p>Seguimiento oficial de nuestros equipos</p>
-</header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Competiciones AL7</h1>
+      <p>Seguimiento oficial de nuestros equipos</p>
+    </div>
+  </header>
 
-<section class="liga">
+  <main class="container">
 
-<h2>AL7 +35</h2>
+    <section class="liga-card">
+      <div class="liga-header">
+        <h2>AL7 +35</h2>
+        <a class="liga-link" href="https://copafacil.com/ligasenior35/clasificacion" target="_blank" rel="noopener noreferrer">
+          Ver en CopaFácil
+        </a>
+      </div>
 
-<div class="iframe-container">
-<iframe src="https://copafacil.com/ligasenior35"></iframe>
-</div>
+      <p class="liga-desc">
+        Tabla de posiciones de AL7 +35 en la Liga Belloto Senior 35 Apertura 2026.
+      </p>
 
-</section>
+      <div class="iframe-shell iframe-shell-senior">
+        <div class="iframe-container">
+          <iframe
+            src="https://copafacil.com/ligasenior35/clasificacion"
+            title="Clasificación AL7 +35"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
 
+    <section class="liga-card">
+      <div class="liga-header">
+        <h2>AL7 Primera Selección</h2>
+        <a class="liga-link" href="https://copafacil.com/ligabelloto2026/clasificacion" target="_blank" rel="noopener noreferrer">
+          Ver en CopaFácil
+        </a>
+      </div>
 
-<section class="liga">
+      <p class="liga-desc">
+        Tabla de posiciones de AL7 Primera Selección en Liga Belloto Apertura 2026.
+      </p>
 
-<h2>AL7 Primera Selección</h2>
+      <div class="iframe-shell iframe-shell-primera">
+        <div class="iframe-container">
+          <iframe
+            src="https://copafacil.com/ligabelloto2026/clasificacion"
+            title="Clasificación AL7 Primera Selección"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
 
-<div class="iframe-container">
-<iframe src="https://copafacil.com/ligabelloto2026"></iframe>
-</div>
-
-</section>
+  </main>
 
 </body>
 </html>
